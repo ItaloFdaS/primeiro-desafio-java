@@ -1,6 +1,9 @@
 const convertButton = document.querySelector(".convert-button");
 const currencySelect = document.getElementById("currency-select");
+const currencySelectToConvert = document.getElementById("currency-to-convert");
+
 currencySelect.addEventListener("change", changeCurrency);
+currencySelectToConvert.addEventListener("change", changeCurrencyConvert);
 
 function convertValues() {
   const inputCurrencyValue = document.querySelector(".input-currency").value;
@@ -51,7 +54,7 @@ function convertValues() {
 
 function changeCurrency() {
   const currencyName = document.getElementById("currency-name");
-  const currencyImg = document.getElementById("img-currency-converted");
+  const currencyImg = document.querySelector(".img-currency-converted");
 
   if (currencySelect.value == "dolar") {
     currencyName.innerHTML = "Dólar americano";
@@ -73,7 +76,46 @@ function changeCurrency() {
     currencyImg.src = "./assets/bitcoin.png";
   }
 
+  if (currencySelect.value == "real") {
+    currencyName.innerHTML = "Real";
+    currencyImg.src = "./assets/brasil.png";
+  }
+
   convertValues();
+}
+
+function changeCurrencyConvert() {
+  const currencyToConvertName = document.getElementById(
+    "currency-to-convert-frist-coin"
+  );
+  const currencyToConvertImg = document.querySelector(
+    ".img-currency-to-convert"
+  );
+
+  if (currencySelectToConvert.value == "dolar1") {
+    currencyToConvertName.innerHTML = "Dólar americano";
+    currencyToConvertImg.src = "./assets/eua.png";
+  }
+
+  if (currencySelectToConvert.value == "euro1") {
+    currencyToConvertName.innerHTML = "Euro";
+    currencyToConvertImg.src = "./assets/euro.png";
+  }
+
+  if (currencySelectToConvert.value == "libra1") {
+    currencyToConvertName.innerHTML = "Libra";
+    currencyToConvertImg.src = "./assets/libra.png";
+  }
+
+  if (currencySelectToConvert.value == "bitcoin1") {
+    currencyToConvertName.innerHTML = "Bitcoin";
+    currencyToConvertImg.src = "./assets/bitcoin.png";
+  }
+
+  if (currencySelectToConvert.value == "real1") {
+    currencyToConvertName.innerHTML = "Real";
+    currencyToConvertImg.src = "./assets/brasil.png";
+  }
 }
 
 convertButton.addEventListener("click", convertValues);
